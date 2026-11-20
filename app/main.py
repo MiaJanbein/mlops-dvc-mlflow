@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 
 # 1. Load the downloaded model
-model_path = Path("model")
+model_path = Path("model/artifacts")
 
 model = mlflow.pyfunc.load_model(str(model_path))
 
