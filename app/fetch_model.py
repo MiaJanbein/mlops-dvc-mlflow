@@ -14,11 +14,16 @@ client = MlflowClient()
 
 
 # 2. Find the latest model in our experiment
+
+# Find the latest model in our experiment
 models = client.search_logged_models(
     experiment_ids=["0"],
     max_results=1,
-    order_by=["creation_time DESC"],
+    order_by=[
+        {"field_name": "creation_time", "ascending": False}
+    ],
 )
+
 
 if not models:
     raise RuntimeError("No logged models found in experiment 0.")
